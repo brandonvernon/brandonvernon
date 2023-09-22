@@ -1,0 +1,128 @@
+$oneCol: calc(100%/12);
+$twoCol: calc(100%/12*2);
+$threeCol: calc(100%/12*3);
+$fourCol: calc(100%/12*4);
+$fiveCol: calc(100%/12*5);
+$sixCol: calc(100%/12*6);
+$sevenCol: calc(100%/12*7);
+$eightCol: calc(100%/12*8);
+$nineCol: calc(100%/12*9);
+$tenCol: calc(100%/12*10);
+$elevenCol: calc(100%/12*11);
+$full: calc(100%);
+
+$dark: #222020;
+$light: #ffffff;
+
+html, body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  color: $light;
+  //overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0 0 $oneCol;
+  margin: 0px 0px 0px 0px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 9VW;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 5VW;
+  }
+}
+
+a {
+  font-size: 16px;
+  color: $light;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+  }
+}
+
+p, li, label {
+  margin: 0px 0px 0px 0px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding: 0px 0px 0px 0px;
+  font-size: 16px;
+  letter-spacing: 1px;
+
+  @media screen and (min-width: 1366px) {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    font-size: 24px;
+  }
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+label {
+  padding: 0px 0px 0px 30px;
+}
+
+input, textarea {
+  padding: 15px;
+  margin: 15px 0;
+  background-color: $light;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $dark;
+    opacity: 1; /* Firefox */
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $dark;
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    color: $dark;
+  }
+
+  &:focus {
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 3px #ffffff !important;
+    -moz-box-shadow: 0 0 3px #ffffff !important;
+    -webkit-box-shadow: 0 0 3px #ffffff !important;
+    outline-offset: 0px !important;
+    outline: none !important;
+  }
+}
+
+.wpcc-privacy {
+  font-size: 12px !important;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.section {
+  padding: $oneCol;
+}
+
+.section-skinny {
+  padding: $oneCol;
+
+  @media screen and (min-width: 1024px) {
+    padding: $oneCol $twoCol;
+  }
+}

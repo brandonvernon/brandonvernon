@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120518060-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-120518060-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="origin-when-cross-origin" />
+  <title>Brandon Vernon</title>
+  <meta name="description" content="UX/UI Designer and Web Developer" />
+  <meta name="author" content="Brandon Vernon" />
+  <meta name="copyright" content="Brandon Vernon" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta property="og:title" content="Brandon Vernon" />
+  <meta property="og:description" content="UX/UI Designer and Web Developer" />
+  <meta property="og:url" content="http://www.brandonvernon.com/" />
+  <meta property="og:image" content="http://www.brandonvernon.com/images/og.jpg" />
+  <meta property="og:type" content="website" />
+  <!--<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />-->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|Montserrat&display=swap" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+    integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+    crossorigin="anonymous"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    };
+  </script>
+  <!-- Cookie Banner -->
+  <link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css" />
+  <script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script>
+  <script>window.addEventListener("load", function () { window.wpcc.init({ "colors": { "popup": { "background": "#222020", "text": "#ffffff", "border": "#555555" }, "button": { "background": "#555555", "text": "#ffffff" } }, "position": "bottom", "padding": "none", "margin": "none", "fontsize": "tiny", "content": { "href": "http://www.brandonvernon.com/cookies-policy", "button": "Dismiss", "link": "Cookies Policy", "message": "This website uses cookies just like every other website." } }) });</script>
+  <!-- End Cookie Banner -->
+</head>
+
+<body>
+
+  <!-- Water Turbulence -->
+  <svg>
+    <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+      <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="5 1"></feTurbulence>
+      <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+      <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="120s" keyTimes="0;0.5;1"
+        values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite" />
+    </filter>
+  </svg>
+
+  <!-- Load Screen -->
+  <div id="headerLoadBG">
+    <p id="headerLoadBGName">Brandon Vernon</p>
+  </div>
+
+  <!-- Header -->
+  <header id="header">
+    <div id="headerWater"></div>
+    <div id="headerOverlay"></div>
+    <!-- Navigation -->
+    <nav id="nav">
+      <p id="navName">Brandon Vernon</p>
+      <a href="#about" id="navAbout" class="nav-link">About Me</a>
+      <a href="#portfolio" id="navPortfolio" class="nav-link">Portfolio</a>
+      <a href="#contact" id="navContact" class="nav-link">Contact</a>
+    </nav>
+    <h1 id="headerHeadline">UX Designer | Web Developer</h1>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="section-skinny">
+    <h2>About Me</h2>
+    <p id="aboutCopy">
+      <span>UX Designer | Visual Designer | Web Developer</span>
+      <br />
+      Originally from Austin, Texas I am now based out of Erie, Colorado. My talents in art and design combined
+      with my mathematical and logical approach to problem solving led me to pursue web development. It quickly
+      became a passion of mine. That passion, attention to detail, and tenacious work ethic has made me a valued
+      asset to any team.
+      <br /><br />
+      I am proficient in HTML, CSS, and JavaScript, as well as Craft CMS and Adobe Suite.
+    </p>
+    <div id="aboutLinks">
+      <a href="https://www.linkedin.com/in/brandontvernon/" target="_blank" rel="noopener" id="link"
+        class="info">LinkedIn</a>
+      <a href="pdf/brandon-vernon-resume.pdf" download="Brandon Vernon's Resume.pdf">Resume</a>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="section">
+    <h2>Portfolio</h2>
+    <div id="projectContainer">
+      <div class="project">
+        <img src="css/images/solid-power.jpg" alt="solidpowerbattery.com">
+        <div class="project-info">
+          <h3 class="info"><strong>Client</strong> | Solid Power</h3>
+          <p class="info"><strong>Employeer</strong> | Avocet Communications</p>
+          <p class="info"><strong>Role</strong> | UX Designer - Visual Designer - Web Developer</p>
+          <a href="https://solidpowerbattery.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
+              Project</strong></a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="css/images/fdb.jpg" alt="fdbhealth.com">
+        <div class="project-info">
+          <h3 class="info"><strong>Client</strong> | First Databank</h3>
+          <p class="info"><strong>Employeer</strong> | Engagency</p>
+          <p class="info"><strong>Role</strong> | Front-End Web Developer</p>
+          <a href="https://www.fdbhealth.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
+              Project</strong></a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="css/images/apg.jpg" alt="flyapg.com">
+        <div class="project-info">
+          <h3 class="info"><strong>Client</strong> | Aircraft Performance Group</h3>
+          <p class="info"><strong>Employeer</strong> | Avocet Communications</p>
+          <p class="info"><strong>Role</strong> | Web Developer</p>
+          <a href="https://flyapg.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
+              Project</strong></a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="css/images/redeem.jpg" alt="redeemfinancial.com">
+        <div class="project-info">
+          <h3 class="info"><strong>Client</strong> | Redeem</h3>
+          <p class="info"><strong>Employeer</strong> | Freelance</p>
+          <p class="info"><strong>Role</strong> | UX Designer - Visual Designer - Web Developer</p>
+          <a href="https://www.redeemfinancial.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
+              Project</strong></a>
+        </div>
+      </div>
+      <div class="project">
+        <img src="css/images/memory.jpg" alt="Memory Game Web App">
+        <div class="project-info">
+          <h3 class="info"><strong>Project</strong> | Memory Game</h3>
+          <p class="info"><strong>Employeer</strong> | Personal</p>
+          <p class="info"><strong>Role</strong> | UX Designer - Visual Designer - Web Developer</p>
+          <a href="http://www.brandonvernon.com/memory-game.html" target="_blank" rel="noopener"
+            class="info info-link"><strong>View Project</strong></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <form id="form" action="contact.php" method="post">
+      <label for="email">
+        EMAIL*
+      </label>
+      <input id="email" type="email" name="email" required tabindex="0">
+      <label for="firstname">
+        FIRST NAME
+      </label>
+      <input id="firstname" type="text" name="firstname" tabindex="0">
+      <label for="lastname">
+        LAST NAME
+      </label>
+      <input id="lastname" type="text" name="lastname" tabindex="0">
+      <label for="comments">
+        MESSAGE
+      </label>
+      <textarea id="comments" name="comments" rows="1" required tabindex="0"></textarea>
+      <input id="contactSubmit" type="submit" value="SUBMIT" class="g-recaptcha"
+        data-sitekey="6LffTOYUAAAAAE59ItpJryURFzzJVSj-bwCZ3FAL" data-callback='onSubmit' tabindex="0">
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <a href="privacy-policy" target="_blank" id="footerPrivacy">Privacy Policy</a>
+    <a href="cookies-policy" target="_blank" id="footerCookies">Cookie Policy</a>
+    <p>© <span class="year"></span> Brandon Vernon. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

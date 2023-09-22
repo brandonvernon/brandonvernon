@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120518060-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-120518060-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="origin-when-cross-origin" />
+  <title>Brandon Vernon</title>
+  <meta name="description" content="UX/UI Designer and Web Developer" />
+  <meta name="author" content="Brandon Vernon" />
+  <meta name="copyright" content="Brandon Vernon" />
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+  <meta property="og:title" content="Brandon Vernon" />
+  <meta property="og:description" content="UX/UI Designer and Web Developer" />
+  <meta property="og:url" content="http://www.brandonvernon.com/" />
+  <meta property="og:image" content="http://www.brandonvernon.com/images/og.jpg" />
+  <meta property="og:type" content="website" />
+  <!--<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />-->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|Montserrat&display=swap" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+    integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+    crossorigin="anonymous"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("form").submit();
+    };
+  </script>
+  <!-- Cookie Banner -->
+  <link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css" />
+  <script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"></script>
+  <script>window.addEventListener("load", function () { window.wpcc.init({ "colors": { "popup": { "background": "#222020", "text": "#ffffff", "border": "#555555" }, "button": { "background": "#555555", "text": "#ffffff" } }, "position": "bottom", "padding": "none", "margin": "none", "fontsize": "tiny", "content": { "href": "http://www.brandonvernon.com/cookies-policy", "button": "Dismiss", "link": "Cookies Policy", "message": "This website uses cookies just like every other website." } }) });</script>
+  <!-- End Cookie Banner -->
+</head>
+
+<body>
+
+  <!-- Water Turbulence -->
+  <svg>
+    <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+      <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="5 1"></feTurbulence>
+      <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+      <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="120s" keyTimes="0;0.5;1"
+        values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite" />
+    </filter>
+  </svg>
+
+  <!-- Load Screen -->
+  <div id="headerLoadBG">
+    <p id="headerLoadBGName">Brandon Vernon</p>
+  </div>
+
+  <!-- Header -->
+  <header id="header">
+    <div id="headerWater"></div>
+    <div id="headerOverlay"></div>
+    <h1 id="headerHeadline">This is not the page you're looking for<br /><a href="https://www.brandonvernon.com">Back to
+        brandonvernon.com</a></h1>
+  </header>
+
+  <!-- Footer -->
+  <footer id="footer" style="position: absolute; bottom: 0;">
+    <a href="privacy-policy" target="_blank" id="footerPrivacy">Privacy Policy</a>
+    <a href="cookies-policy" target="_blank" id="footerCookies">Cookie Policy</a>
+    <p>© 2020 Brandon Vernon. All rights reserved.</p>
+  </footer>
+
+  <script src="web/js/main.js"></script>
+
+</body>
+
+</html>

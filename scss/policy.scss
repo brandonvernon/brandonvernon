@@ -1,0 +1,49 @@
+$oneCol: calc(100%/12);
+$twoCol: calc(100%/12*2);
+$threeCol: calc(100%/12*3);
+$fourCol: calc(100%/12*4);
+$fiveCol: calc(100%/12*5);
+$sixCol: calc(100%/12*6);
+$sevenCol: calc(100%/12*7);
+$eightCol: calc(100%/12*8);
+$nineCol: calc(100%/12*9);
+$tenCol: calc(100%/12*10);
+$elevenCol: calc(100%/12*11);
+$full: calc(100%);
+
+$dark: #222020;
+$light: #ffffff;
+
+@mixin flex-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@mixin flex-row-nowrap {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+@mixin flex-column-nowrap {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#policy {
+  background-color: $dark;
+  overflow-wrap: break-word;
+
+  h1, h2, h3 {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  h1, h2, h3, p {
+    width: calc(100% - (100%/12*2));
+  }
+}
