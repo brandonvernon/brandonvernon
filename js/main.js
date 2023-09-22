@@ -5,13 +5,13 @@
 
 // Variables: Nav
 const checkbox = document.getElementById('checkbox'),
-      navMobile = document.getElementById('navMobile');
+  navMobile = document.getElementById('navMobile')
 
 // Variables: Header
 const header = document.getElementById('header'),
-      headerLoadBG = document.getElementById('headerLoadBG'),
-      headerLoadBGName = document.getElementById('headerLoadBGName'),
-      firstHeadline = document.getElementsByTagName('h1')[0];
+  headerLoadBG = document.getElementById('headerLoadBG'),
+  headerLoadBGName = document.getElementById('headerLoadBGName'),
+  firstHeadline = document.getElementsByTagName('h1')[0]
 
 /*
 
@@ -22,14 +22,14 @@ let timeout = false, // holder for timeout id
 */
 
 /*** Event Listeners ***/
-window.addEventListener('load', windowLoad, false);
-window.addEventListener('click', windowClick, false);
+window.addEventListener('load', windowLoad, false)
+window.addEventListener('click', windowClick, false)
 
 /*
 
 window.addEventListener('keydown', keydown, false);
 window.addEventListener('resize', function() {
-	// clear the timeout
+  // clear the timeout
   clearTimeout(timeout);
   // start timing for event "completion"
   timeout = setTimeout(windowResize, delay);
@@ -40,38 +40,40 @@ window.addEventListener('resize', function() {
 /*** Event Listeners' Functions ***/
 
 // Apply Correct Styles on Window Load
-var ua = window.navigator.userAgent;
-var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-var webkit = !!ua.match(/WebKit/i);
-var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+var ua = window.navigator.userAgent
+var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i)
+var webkit = !!ua.match(/WebKit/i)
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i)
 
 function windowLoad() {
   if (!iOSSafari) {
     if (window.location.href == 'https://www.brandonvernon.com/') {
-      headerLoadBGName.style.opacity = '1';
-    };
-    setTimeout( function () {
-      headerLoadBG.style.height = '0px';
-      headerLoadBGName.style.display = 'none';
-    }, 1000);
-    setTimeout( function () {
-      firstHeadline.style.opacity = '1';
-    }, 1500);
+      headerLoadBGName.style.opacity = '1'
+    } else { // Remove for Prod
+      headerLoadBGName.style.opacity = '1'
+    }
+    setTimeout(function () {
+      headerLoadBG.style.height = '0px'
+      headerLoadBGName.style.display = 'none'
+    }, 1000)
+    setTimeout(function () {
+      firstHeadline.style.opacity = '1'
+    }, 1500)
   } else if (iOSSafari) {
-    headerLoadBG.style.height = '0px';
-    headerLoadBGName.style.display = 'none';
-    firstHeadline.style.opacity = '1';
-  };
-};
+    headerLoadBG.style.height = '0px'
+    headerLoadBGName.style.display = 'none'
+    firstHeadline.style.opacity = '1'
+  }
+}
 
 // Call Specific Functions on Click
 function windowClick(e) {
   if (e.target === checkbox) {
-        toggleMobileNav();
-    } else {
-      return;
-    };
-  };
+    toggleMobileNav();
+  } else {
+    return
+  }
+}
 
 /*
 
@@ -93,13 +95,13 @@ function windowResize() {
 /*** Common Functions ***/
 function toggleMobileNav() {
   if (checkbox.checked === true) {
-    navMobile.style.height = '100VH';
+    navMobile.style.height = '100VH'
   } else if (checkbox.checked === false) {
-    setTimeout( function () {
-      navMobile.style.height = '72px';
-    }, 500);
-  };
-};
+    setTimeout(function () {
+      navMobile.style.height = '72px'
+    }, 500)
+  }
+}
 
 /*
 

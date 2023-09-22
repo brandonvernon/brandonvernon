@@ -14,17 +14,22 @@ $full: calc(100%);
 $dark: #222020;
 $light: #ffffff;
 
-html, body {
+html,
+body {
   margin: 0;
   font-family: 'Cinzel', serif;
   color: $light;
-  //overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding: 0 0 $oneCol;
-  margin: 0px 0px 0px 0px;
+  margin: 0;
   margin-block-start: 0;
   margin-block-end: 0;
   font-family: 'Cinzel', serif;
@@ -49,8 +54,10 @@ a {
   }
 }
 
-p, li, label {
-  margin: 0px 0px 0px 0px;
+p,
+li,
+label {
+  margin: 0;
   margin-block-start: 0;
   margin-block-end: 0;
   padding: 0px 0px 0px 0px;
@@ -76,7 +83,8 @@ label {
   padding: 0px 0px 0px 30px;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 15px;
   margin: 15px 0;
   background-color: $light;
@@ -84,16 +92,20 @@ input, textarea {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
 
-  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: $dark;
-    opacity: 1; /* Firefox */
+    opacity: 1;
+    /* Firefox */
   }
 
-  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     color: $dark;
   }
 
-  &::-ms-input-placeholder { /* Microsoft Edge */
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
     color: $dark;
   }
 

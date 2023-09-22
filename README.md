@@ -1,4 +1,4 @@
 Sass:<br>
-    sass --watch sass:css<br><br>
+    sass --watch scss:css<br><br>
 Browser Sync:<br>
     browser-sync start --server 'brandonvernon' --files 'brandonvernon'
