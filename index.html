@@ -31,10 +31,10 @@
     <meta http-equiv="Expires" content="0" />-->
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link href="https://fonts.googleapis.com/css?family=Cinzel|Montserrat&display=swap" rel="stylesheet">
-  <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
-    integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
-    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/25bbcb0794.js" crossorigin="anonymous"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
     function onSubmit(token) {
@@ -78,26 +78,19 @@
       <a href="#portfolio" id="navPortfolio" class="nav-link">Portfolio</a>
       <a href="#contact" id="navContact" class="nav-link">Contact</a>
     </nav>
-    <h1 id="headerHeadline">UX/UI Designer | Web Developer</h1>
+    <h1 id="headerHeadline"><span>UX/UI Designer</span> <span class="divider">|</span> <span>Web Developer</span></h1>
   </header>
 
   <!-- About -->
-  <section id="about" class="section-skinny">
-    <h2>About Me</h2>
+  <section id="about">
+    <h2>About</h2>
     <p id="aboutCopy">
-      <span>UX Designer | Visual Designer | Web Developer</span>
-      <br />
-      Originally from Austin, Texas I am now based out of Erie, Colorado. My talents in art and design combined
-      with my mathematical and logical approach to problem solving led me to pursue web development. It quickly
-      became a passion of mine. That passion, attention to detail, and tenacious work ethic has made me a valued
-      asset to any team.
-      <br /><br />
-      I am proficient in HTML, CSS, and JavaScript, as well as Craft CMS and Adobe Suite.
+      My name is Brandon Vernon, I'm a UX/UI Designer and Web Developer based in Austin, Texas. I possess a genuine affinity for people, a passion for constructing things, and a natural knack for unraveling puzzles. In my professional realm, I thrive on collaborative efforts with creative and engineering teams to conceive innovative solutions for distinct business challenges. My specialty lies in crafting intuitive, user-friendly, and responsive websites, along with dynamic web applications. My primary toolkit includes HTML, CSS, JavaScript, and modern front-end frameworks.
     </p>
     <div id="aboutLinks">
-      <a href="https://www.linkedin.com/in/brandontvernon/" target="_blank" rel="noopener" id="link"
-        class="info">LinkedIn</a>
-      <a href="pdf/brandon-vernon-resume.pdf" download="Brandon Vernon's Resume.pdf">Resume</a>
+      <a href="https://www.linkedin.com/in/brandontvernon/" target="_blank" rel="noopener" id="link" class="info"><i class="fa-brands fa-linkedin-in fa-2xl"></i></a>
+      <a href="https://github.com/brandonvernon?tab=overview&from=2023-09-01&to=2023-09-26" target="_blank" rel="noopener" id="link" class="info"><i class="fa-brands fa-github fa-2xl"></i></a>
+      <a href="pdf/brandon-vernon-resume.pdf" download="Brandon Vernon's Resume.pdf" class="cv">CV</a>
     </div>
   </section>
 
@@ -105,80 +98,61 @@
   <section id="portfolio" class="section">
     <h2>Portfolio</h2>
     <div id="projectContainer">
-      <div class="project">
-        <img src="images/solid-power.jpg" alt="solidpowerbattery.com">
+      <a href="https://www.halliburton.com/en/home" target="_blank" rel="noopener" class="project">
+        <img src="images/halliburton.jpg" alt="halliburton.com">
         <div class="project-info">
-          <h3 class="info"><strong>Client</strong> | Solid Power</h3>
-          <p class="info"><strong>Employeer</strong> | Avocet Communications</p>
-          <p class="info"><strong>Role</strong> | UX Designer - Visual Designer - Web Developer</p>
-          <a href="https://solidpowerbattery.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
-              Project</strong></a>
+          <h3 class="info">Halliburton</h3>
         </div>
-      </div>
-      <div class="project">
+      </a>
+      <a href="https://www.miaxglobal.com/" target="_blank" rel="noopener" class="project">
+        <img src="images/miax.jpg" alt="miaxglobal.com">
+        <div class="project-info">
+          <h3 class="info">Miax</h3>
+        </div>
+      </a>
+      <a href="https://www.fdbhealth.com/" target="_blank" rel="noopener" class="project">
         <img src="images/fdb.jpg" alt="fdbhealth.com">
         <div class="project-info">
-          <h3 class="info"><strong>Client</strong> | First Databank</h3>
-          <p class="info"><strong>Employeer</strong> | Engagency</p>
-          <p class="info"><strong>Role</strong> | Front-End Web Developer</p>
-          <a href="https://www.fdbhealth.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
-              Project</strong></a>
+          <h3 class="info">First Databank</h3>
         </div>
-      </div>
-      <div class="project">
-        <img src="images/apg.jpg" alt="flyapg.com">
+      </a>
+      <a href="https://www.goperfconnect.com/" target="_blank" rel="noopener" class="project">
+        <img src="images/perfconnect.jpg" alt="goperfconnect.com">
         <div class="project-info">
-          <h3 class="info"><strong>Client</strong> | Aircraft Performance Group</h3>
-          <p class="info"><strong>Employeer</strong> | Avocet Communications</p>
-          <p class="info"><strong>Role</strong> | Web Developer</p>
-          <a href="https://flyapg.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
-              Project</strong></a>
+          <h3 class="info">PerfConnect</h3>
         </div>
-      </div>
-      <div class="project">
-        <img src="images/redeem.jpg" alt="redeemfinancial.com">
-        <div class="project-info">
-          <h3 class="info"><strong>Client</strong> | Redeem</h3>
-          <p class="info"><strong>Employeer</strong> | Freelance</p>
-          <p class="info"><strong>Role</strong> | UX Designer - Visual Designer - Web Developer</p>
-          <a href="https://www.redeemfinancial.com/" target="_blank" rel="noopener" class="info info-link"><strong>View
-              Project</strong></a>
-        </div>
-      </div>
-      <div class="project">
+      </a>
+      <a href="http://www.brandonvernon.com/memory-game.html" target="_blank" rel="noopener" class="project">
         <img src="images/memory.jpg" alt="Memory Game Web App">
         <div class="project-info">
-          <h3 class="info"><strong>Project</strong> | Memory Game</h3>
-          <p class="info"><strong>Employeer</strong> | Personal</p>
-          <p class="info"><strong>Role</strong> | UX Designer - Visual Designer - Web Developer</p>
-          <a href="http://www.brandonvernon.com/memory-game.html" target="_blank" rel="noopener"
-            class="info info-link"><strong>View Project</strong></a>
+          <h3 class="info">Memory Game</h3>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="section">
     <h2>Contact</h2>
+    <p>Get in touch or shoot me an email directly at <span>brandontvernon@gmail.com</span></p>
     <form id="form" action="contact.php" method="post">
       <label for="email">
-        EMAIL*
+        Email*
       </label>
       <input id="email" type="email" name="email" required tabindex="0">
       <label for="firstname">
-        FIRST NAME
+        First Name
       </label>
       <input id="firstname" type="text" name="firstname" tabindex="0">
       <label for="lastname">
-        LAST NAME
+        Last Name
       </label>
       <input id="lastname" type="text" name="lastname" tabindex="0">
       <label for="comments">
-        MESSAGE
+        Message
       </label>
       <textarea id="comments" name="comments" rows="1" required tabindex="0"></textarea>
-      <input id="contactSubmit" type="submit" value="SUBMIT" class="g-recaptcha"
+      <input id="contactSubmit" type="submit" value="Submit" class="g-recaptcha"
         data-sitekey="6LffTOYUAAAAAE59ItpJryURFzzJVSj-bwCZ3FAL" data-callback='onSubmit' tabindex="0">
     </form>
   </section>

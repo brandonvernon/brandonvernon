@@ -54,9 +54,10 @@ function windowLoad() {
     }
     setTimeout(function () {
       headerLoadBG.style.height = '0px'
-      headerLoadBGName.style.display = 'none'
+      headerLoadBGName.style.opacity = '0'
     }, 1000)
     setTimeout(function () {
+      headerLoadBGName.style.display = 'none'
       firstHeadline.style.opacity = '1'
     }, 1500)
   } else if (iOSSafari) {

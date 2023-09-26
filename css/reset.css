@@ -3,7 +3,13 @@ body {
   margin: 0;
   font-family: "Cinzel", serif;
   color: #ffffff;
+  background-color: #222020;
   scroll-behavior: smooth;
+}
+
+section {
+  margin: 8.3333333333% 0 0;
+  padding: 8.3333333333% 8.3333333333% 0;
 }
 
 h1,
@@ -12,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  padding: 0 0 8.3333333333%;
+  padding: 0 0 32px;
   margin: 0;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -20,6 +26,7 @@ h6 {
   font-size: 9VW;
   font-weight: 400;
   letter-spacing: 1px;
+  line-height: 1;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
@@ -54,6 +61,7 @@ label {
   padding: 0px 0px 0px 0px;
   font-size: 16px;
   letter-spacing: 1px;
+  line-height: 1.5;
 }
 @media screen and (min-width: 1366px) {
   p,
@@ -77,13 +85,13 @@ ul {
 }
 
 label {
-  padding: 0px 0px 0px 30px;
+  padding: 0px 0px 0px 32px;
 }
 
 input,
 textarea {
-  padding: 15px;
-  margin: 15px 0;
+  padding: 16px;
+  margin: 16px 0;
   background-color: #ffffff;
   border: none;
   font-family: "Montserrat", sans-serif;
@@ -124,17 +132,9 @@ textarea:focus {
   visibility: hidden;
 }
 
-.section {
-  padding: 8.3333333333%;
-}
-
-.section-skinny {
-  padding: 8.3333333333%;
-}
-@media screen and (min-width: 1024px) {
-  .section-skinny {
-    padding: 8.3333333333% 16.6666666667%;
-  }
+#shadow-host-companion {
+  margin: 0;
+  padding: 0;
 }
 
 /*# sourceMappingURL=reset.css.map */

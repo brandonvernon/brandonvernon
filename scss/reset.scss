@@ -1,3 +1,4 @@
+$halfCol: calc(50%/12);
 $oneCol: calc(100%/12);
 $twoCol: calc(100%/12*2);
 $threeCol: calc(100%/12*3);
@@ -19,7 +20,13 @@ body {
   margin: 0;
   font-family: 'Cinzel', serif;
   color: $light;
+  background-color: $dark;
   scroll-behavior: smooth;
+}
+
+section {
+  margin: $oneCol 0 0;
+  padding: $oneCol $oneCol 0;
 }
 
 h1,
@@ -28,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-  padding: 0 0 $oneCol;
+  padding: 0 0 32px;
   margin: 0;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -36,6 +43,7 @@ h6 {
   font-size: 9VW;
   font-weight: 400;
   letter-spacing: 1px;
+  line-height: 1;
   text-align: center;
 
   @media screen and (min-width: 768px) {
@@ -63,6 +71,7 @@ label {
   padding: 0px 0px 0px 0px;
   font-size: 16px;
   letter-spacing: 1px;
+  line-height: 1.5;
 
   @media screen and (min-width: 1366px) {
     font-size: 20px;
@@ -80,13 +89,13 @@ ul {
 }
 
 label {
-  padding: 0px 0px 0px 30px;
+  padding: 0px 0px 0px 32px;
 }
 
 input,
 textarea {
-  padding: 15px;
-  margin: 15px 0;
+  padding: 16px;
+  margin: 16px 0;
   background-color: $light;
   border: none;
   font-family: 'Montserrat', sans-serif;
@@ -127,14 +136,7 @@ textarea {
   visibility: hidden;
 }
 
-.section {
-  padding: $oneCol;
-}
-
-.section-skinny {
-  padding: $oneCol;
-
-  @media screen and (min-width: 1024px) {
-    padding: $oneCol $twoCol;
-  }
+#shadow-host-companion {
+  margin: 0;
+  padding: 0;
 }
