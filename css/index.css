@@ -285,7 +285,7 @@ body::-webkit-scrollbar {
   color: #969593;
   transition: all 0.3s ease-in-out;
 }
-@media screen and (min-width: 1367px) {
+@media screen and (min-width: 1366px) {
   #about #aboutLinks i:hover, #about #aboutLinks i:focus,
   #about #aboutLinks a.cv:hover,
   #about #aboutLinks a.cv:focus {
@@ -402,10 +402,8 @@ body::-webkit-scrollbar {
   -webkit-appearance: none;
   transition: all 0.5s ease;
 }
-@media screen and (min-width: 1366px) {
-  #contact form #contactSubmit:hover, #contact form #contactSubmit:focus {
-    filter: drop-shadow(0px 0px 8px #ffffff);
-  }
+#contact form #contactSubmit:hover, #contact form #contactSubmit:focus {
+  filter: drop-shadow(0px 0px 8px #ffffff);
 }
 
 #footer {

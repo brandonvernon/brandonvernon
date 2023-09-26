@@ -333,7 +333,7 @@ body::-webkit-scrollbar {
 
       &:hover,
       &:focus {
-        @media screen and (min-width: 1367px) {
+        @media screen and (min-width: 1366px) {
           color: $light;
           transform: scale(1.2);
         }
@@ -455,9 +455,7 @@ body::-webkit-scrollbar {
 
       &:hover,
       &:focus {
-        @media screen and (min-width: 1366px) {
-          filter: drop-shadow(0px 0px 8px #ffffff);
-        }
+        filter: drop-shadow(0px 0px 8px #ffffff);
       }
     }
   }
