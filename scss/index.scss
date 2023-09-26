@@ -203,6 +203,7 @@ body::-webkit-scrollbar {
     }
 
     @media screen and (min-width: 1366px) {
+
       &:before,
       &:after {
         content: '';
@@ -325,7 +326,8 @@ body::-webkit-scrollbar {
       font-size: 40px;
     }
 
-    i, a.cv {
+    i,
+    a.cv {
       color: #969593;
       transition: all 0.3s ease-in-out;
 
@@ -386,13 +388,15 @@ body::-webkit-scrollbar {
         right: 0;
         bottom: 0;
         left: 0;
-        background: linear-gradient(#00000003 10%, #000000C7 75%);
+        height: 100%;
+        background: linear-gradient(#00000003 10%, #000000C7 100%);
         border-radius: 8px;
         transition: all 0.5s ease-in-out;
         overflow: hidden;
 
         @media screen and (min-width: 1366px) {
           height: 0;
+          background: linear-gradient(#00000003 10%, #000000C7 75%);
         }
 
         .info {

@@ -280,12 +280,15 @@ body::-webkit-scrollbar {
 #about #aboutLinks a.cv {
   font-size: 40px;
 }
-#about #aboutLinks i, #about #aboutLinks a.cv {
+#about #aboutLinks i,
+#about #aboutLinks a.cv {
   color: #969593;
   transition: all 0.3s ease-in-out;
 }
 @media screen and (min-width: 1367px) {
-  #about #aboutLinks i:hover, #about #aboutLinks i:focus, #about #aboutLinks a.cv:hover, #about #aboutLinks a.cv:focus {
+  #about #aboutLinks i:hover, #about #aboutLinks i:focus,
+  #about #aboutLinks a.cv:hover,
+  #about #aboutLinks a.cv:focus {
     color: #ffffff;
     transform: scale(1.2);
   }
@@ -336,7 +339,8 @@ body::-webkit-scrollbar {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.0117647059) 10%, rgba(0, 0, 0, 0.7803921569) 75%);
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.0117647059) 10%, rgba(0, 0, 0, 0.7803921569) 100%);
   border-radius: 8px;
   transition: all 0.5s ease-in-out;
   overflow: hidden;
@@ -344,6 +348,7 @@ body::-webkit-scrollbar {
 @media screen and (min-width: 1366px) {
   #portfolio #projectContainer .project .project-info {
     height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.0117647059) 10%, rgba(0, 0, 0, 0.7803921569) 75%);
   }
 }
 #portfolio #projectContainer .project .project-info .info {
