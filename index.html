@@ -75,9 +75,9 @@
     <!-- Navigation -->
     <nav id="nav">
       <p id="navName">Brandon Vernon</p>
-      <a href="#about" id="navAbout" class="nav-link">About Me</a>
-      <a href="#portfolio" id="navPortfolio" class="nav-link">Portfolio</a>
-      <a href="#contact" id="navContact" class="nav-link">Contact</a>
+      <span id="navAbout" class="nav-link">About</span>
+      <span id="navPortfolio" class="nav-link">Portfolio</span>
+      <span id="navContact" class="nav-link">Contact</span>
     </nav>
     <h1 id="headerHeadline"><span>UX/UI Designer</span> <span class="divider">|</span> <span>Web Developer</span></h1>
   </header>
@@ -104,65 +104,71 @@
 
   <!-- Portfolio -->
   <section id="portfolio" class="section">
-    <h2>Portfolio</h2>
-    <div id="projectContainer">
-      <a href="https://www.halliburton.com/en/home" target="_blank" rel="noopener" class="project">
-        <img src="images/halliburton.jpg" alt="halliburton.com">
-        <div class="project-info">
-          <h3 class="info">Halliburton</h3>
-        </div>
-      </a>
-      <a href="https://www.miaxglobal.com/" target="_blank" rel="noopener" class="project">
-        <img src="images/miax.jpg" alt="miaxglobal.com">
-        <div class="project-info">
-          <h3 class="info">Miax</h3>
-        </div>
-      </a>
-      <a href="https://www.fdbhealth.com/" target="_blank" rel="noopener" class="project">
-        <img src="images/fdb.jpg" alt="fdbhealth.com">
-        <div class="project-info">
-          <h3 class="info">First Databank</h3>
-        </div>
-      </a>
-      <a href="https://www.goperfconnect.com/" target="_blank" rel="noopener" class="project">
-        <img src="images/perfconnect.jpg" alt="goperfconnect.com">
-        <div class="project-info">
-          <h3 class="info">PerfConnect</h3>
-        </div>
-      </a>
-      <a href="http://www.brandonvernon.com/memory-game.html" target="_blank" rel="noopener" class="project">
-        <img src="images/memory.jpg" alt="Memory Game Web App">
-        <div class="project-info">
-          <h3 class="info">Memory Game</h3>
-        </div>
-      </a>
+    <div class="container">
+      <h2>Portfolio</h2>
+      <div id="projectContainer">
+        <a href="https://www.halliburton.com/en/home" target="_blank" rel="noopener" class="project">
+          <img src="images/halliburton.jpg" alt="halliburton.com">
+          <div class="project-info">
+            <h3 class="info">Halliburton</h3>
+          </div>
+        </a>
+        <a href="https://www.miaxglobal.com/" target="_blank" rel="noopener" class="project">
+          <img src="images/miax.jpg" alt="miaxglobal.com">
+          <div class="project-info">
+            <h3 class="info">Miax</h3>
+          </div>
+        </a>
+        <a href="https://www.fdbhealth.com/" target="_blank" rel="noopener" class="project">
+          <img src="images/fdb.jpg" alt="fdbhealth.com">
+          <div class="project-info">
+            <h3 class="info">First Databank</h3>
+          </div>
+        </a>
+        <a href="https://www.goperfconnect.com/" target="_blank" rel="noopener" class="project">
+          <img src="images/perfconnect.jpg" alt="goperfconnect.com">
+          <div class="project-info">
+            <h3 class="info">PerfConnect</h3>
+          </div>
+        </a>
+        <a href="http://www.brandonvernon.com/memory-game.html" target="_blank" rel="noopener" class="project">
+          <img src="images/memory.jpg" alt="Memory Game Web App">
+          <div class="project-info">
+            <h3 class="info">Memory Game</h3>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Get in touch or shoot me an email directly at <span>brandontvernon@gmail.com</span></p>
-    <form id="form" action="contact.php" method="post">
-      <label for="email">
-        Email*
-      </label>
-      <input id="email" type="email" name="email" required tabindex="0">
-      <label for="firstname">
-        First Name
-      </label>
-      <input id="firstname" type="text" name="firstname" tabindex="0">
-      <label for="lastname">
-        Last Name
-      </label>
-      <input id="lastname" type="text" name="lastname" tabindex="0">
-      <label for="comments">
-        Message
-      </label>
-      <textarea id="comments" name="comments" rows="1" required tabindex="0"></textarea>
-      <input id="contactSubmit" type="submit" value="Submit" class="g-recaptcha"
-        data-sitekey="6LffTOYUAAAAAE59ItpJryURFzzJVSj-bwCZ3FAL" data-callback='onSubmit' tabindex="0">
-    </form>
+  <section id="contact">
+    <div class="container">
+      <div>
+        <h2>Contact</h2>
+        <p>Get in touch or shoot me an email directly at <span>brandontvernon@gmail.com</span></p>
+      </div>
+      <form id="form" action="contact.php" method="post">
+        <label for="email">
+          Email*
+        </label>
+        <input id="email" type="email" name="email" required tabindex="0">
+        <label for="firstname">
+          First Name
+        </label>
+        <input id="firstname" type="text" name="firstname" tabindex="0">
+        <label for="lastname">
+          Last Name
+        </label>
+        <input id="lastname" type="text" name="lastname" tabindex="0">
+        <label for="comments">
+          Message
+        </label>
+        <textarea id="comments" name="comments" rows="1" required tabindex="0"></textarea>
+        <input id="contactSubmit" type="submit" value="Submit" class="g-recaptcha"
+          data-sitekey="6LffTOYUAAAAAE59ItpJryURFzzJVSj-bwCZ3FAL" data-callback='onSubmit' tabindex="0">
+      </form>
+    </div>
   </section>
 
   <!-- Footer -->

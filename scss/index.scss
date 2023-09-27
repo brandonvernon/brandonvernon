@@ -150,36 +150,40 @@ body::-webkit-scrollbar {
       text-align: center;
       padding: 25px;
 
+      @media screen and (min-width: 768px) {
+        cursor: pointer;
+      }
+
       @media screen and (min-width: 1366px) {
         font-size: 20px;
       }
     }
 
     #navAbout {
-      display: none;
+      visibility: hidden;
 
       @media screen and (min-width: 768px) {
-        display: block;
+        visibility: visible;
         grid-column-start: 4;
         justify-self: center;
       }
     }
 
     #navPortfolio {
-      display: none;
+      visibility: hidden;
 
       @media screen and (min-width: 768px) {
-        display: block;
+        visibility: visible;
         grid-column-start: 5;
         justify-self: center;
       }
     }
 
     #navContact {
-      display: none;
+      visibility: hidden;
 
       @media screen and (min-width: 768px) {
-        display: block;
+        visibility: visible;
         grid-column-start: 6;
         justify-self: center;
       }
@@ -196,6 +200,7 @@ body::-webkit-scrollbar {
     font-size: 16px;
     letter-spacing: 1px;
     white-space: nowrap;
+    cursor: pointer;
 
     @media screen and (min-width: 768px) {
       display: block;
@@ -295,6 +300,21 @@ body::-webkit-scrollbar {
 #about {
   background-color: $dark;
 
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    padding: 0 $oneCol;
+    background: linear-gradient(#00000003 0%, #000000 32%);
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    overflow: hidden;
+  }
+
   #aboutCopy {
     padding: 0 0 $halfCol;
     font-family: 'Montserrat', sans-serif;
@@ -345,72 +365,106 @@ body::-webkit-scrollbar {
 #portfolio {
   background-color: $dark;
 
-  #projectContainer {
-    padding: 32px 0 0;
-    @include flex-row;
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    padding: 0 $oneCol;
+    background: linear-gradient(#00000003 0%, #000000 32%);
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
+    overflow: hidden;
+  }
 
-    .project {
-      position: relative;
-      width: 100%;
-      max-width: 736.02px;
-      margin: 0 auto 48px;
-      border-radius: 8px;
-      filter: drop-shadow(0px 0px 16px #000000);
-      transition: all 0.5s ease-in-out;
-      @include flex-column-nowrap;
-      text-align: center;
+  .container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 
-      @media screen and (min-width: 1366px) {
-        width: calc(50% - 64px);
-        margin: 0 32px 64px;
-      }
+    @media screen and (min-width: 768px) {
+      overflow-y: scroll;
+    }
 
-      &:hover,
-      &:focus {
-        @media screen and (min-width: 1366px) {
-          transform: scale(1.02);
-          filter: drop-shadow(0px 0px 32px #000000);
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-          .project-info {
-            height: 100%;
+    #projectContainer {
+      padding: 32px 0 0;
+      @include flex-row;
+      justify-content: center;
+
+      .project {
+        position: relative;
+        width: 100%;
+        max-width: 736.02px;
+        margin: 0 auto 48px;
+        border-radius: 8px;
+        filter: drop-shadow(0px 0px 16px #000000);
+        transition: all 0.5s ease-in-out;
+        @include flex-column-nowrap;
+        text-align: center;
+
+        @media screen and (min-width: 1024px) {
+          width: calc(50% - 64px);
+          margin: 0 32px 64px;
+        }
+
+        @media screen and (min-width: 1920px) {
+          width: calc(33.3333% - 64px);
+        }
+
+        &:hover,
+        &:focus {
+          @media screen and (min-width: 768px) {
+            transform: scale(1.02);
+            filter: drop-shadow(0px 0px 32px #000000);
+
+            .project-info {
+              height: 100%;
+            }
           }
         }
-      }
 
-      img {
-        width: 100%;
-        border-radius: 8px;
-      }
-
-      .project-info {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 100%;
-        background: linear-gradient(#00000003 10%, #000000C7 100%);
-        border-radius: 8px;
-        transition: all 0.5s ease-in-out;
-        overflow: hidden;
-
-        @media screen and (min-width: 1366px) {
-          height: 0;
-          background: linear-gradient(#00000003 10%, #000000C7 75%);
+        img {
+          width: 100%;
+          border-radius: 8px;
         }
 
-        .info {
+        .project-info {
           position: absolute;
-          bottom: 16px;
-          left: 16px;
-          padding: 0;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 24px;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          height: 100%;
+          background: linear-gradient(#00000003 10%, #000000C7 100%);
+          border-radius: 8px;
+          transition: all 0.5s ease-in-out;
+          overflow: hidden;
 
           @media screen and (min-width: 768px) {
-            bottom: 32px;
-            left: 32px;
-            font-size: 32px;
+            height: 0;
+            background: linear-gradient(#00000003 10%, #000000C7 75%);
+          }
+
+          .info {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+
+            @media screen and (min-width: 768px) {
+              bottom: 32px;
+              left: 32px;
+              font-size: 32px;
+            }
           }
         }
       }
@@ -420,42 +474,87 @@ body::-webkit-scrollbar {
 
 #contact {
   background-color: $dark;
-  @include flex-column-nowrap;
-  align-items: center;
 
-  p {
-    padding: 0 0 64px;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-
-    span {
-      font-weight: 700;
-    }
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    padding: 0 $oneCol;
+    background: linear-gradient(#00000003 0%, #000000 32%);
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  form {
-    width: $fourCol;
-    max-width: 853.33px;
-    min-width: 300px;
-    @include flex-column;
+  .container {
+    @include flex-column-nowrap;
+    align-items: center;
 
-    #contactSubmit {
-      cursor: pointer;
-      width: $twoCol;
-      min-width: 300px;
-      margin: 32px auto 0;
-      font-family: 'Cinzel', serif;
-      font-size: 20px;
-      color: $light;
-      background-color: $dark;
-      border-radius: 8px;
-      filter: drop-shadow(0px 0px 16px #000000);
-      -webkit-appearance: none;
-      transition: all 0.5s ease;
+    @media screen and (min-width: 768px) {
+      @include flex-row;
+      justify-content: center;
+    }
 
-      &:hover,
-      &:focus {
-        filter: drop-shadow(0px 0px 8px #ffffff);
+    div {
+      @media screen and (min-width: 768px) {
+        width: 50%;
+        padding-right: 32px;
+      }
+
+      h2 {
+        @media screen and (min-width: 768px) {
+          text-align: left;
+        }
+      }
+
+      p {
+        padding: 0 0 64px;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+          padding-right: 32px;
+          text-align: left;
+        }
+
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+
+    form {
+      max-width: 853.33px;
+      min-width: 266.69px;
+      @include flex-column;
+
+      @media screen and (min-width: 768px) {
+        width: $fourCol;
+      }
+
+      #contactSubmit {
+        cursor: pointer;
+        width: $threeCol;
+        min-width: 134.109px;
+        margin: 32px auto 0;
+        font-family: 'Cinzel', serif;
+        font-size: 20px;
+        color: $light;
+        background-color: #000000;
+        border: 1px solid $light;
+        border-radius: 8px;
+        filter: drop-shadow(0px 0px 16px #000000);
+        -webkit-appearance: none;
+        transition: all 0.3s ease-in-out;
+
+        &:hover,
+        &:focus {
+          filter: drop-shadow(0px 0px 8px #ffffff);
+        }
       }
     }
   }
@@ -465,10 +564,17 @@ body::-webkit-scrollbar {
   margin-top: $twoCol;
   padding: 5px 0;
   z-index: 1;
-  background-color: $dark;
+  background-color: #000000;
   @include flex-row;
   justify-content: space-around;
   text-align: center;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 
   a,
   p {

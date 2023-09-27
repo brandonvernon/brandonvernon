@@ -22,11 +22,15 @@ body {
   color: $light;
   background-color: $dark;
   scroll-behavior: smooth;
+
+  @media screen and (min-width: 768px) {
+    overflow: hidden;
+  }
 }
 
 section {
-  margin: $oneCol 0 0;
-  padding: $oneCol $oneCol 0;
+  padding: $twoCol $oneCol 0;
+  transition: height 0.5s ease-in-out;
 }
 
 h1,
@@ -100,6 +104,7 @@ textarea {
   border: none;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1px;
+  border-radius: 8px;
 
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -139,4 +144,20 @@ textarea {
 #shadow-host-companion {
   margin: 0;
   padding: 0;
+}
+
+.show {
+  height: calc(100% - 64px) !important;
+}
+
+#portfolio.show {
+  .container {
+    padding: 64px 0 51px !important;
+  }
+}
+
+#contact.show {
+  .container {
+    padding: 64px 0 99px !important;
+  }
 }

@@ -34,23 +34,59 @@ function windowLoad() {
   }
 }
 
-// Footer: Get current year
-const year = document.querySelector('.year')
+// Desktop: Nav
+const navLinks = document.querySelectorAll('.nav-link')
+const about = document.querySelector('#about'),
+  portfolio = document.querySelector('#portfolio'),
+  contact = document.querySelector('#contact')
 
-year.innerHTML = new Date().getFullYear()
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener('click', sectionManager)
+}
 
-// Disable Scroll
-function disableScroll() {
-  // Get the current page scroll position
-  scrollTop = window.pageYOffset || document.documentElement.scrollTop
-  scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
-  // if any scroll is attempted, set this to the previous value
-  window.onscroll = function() {
-    window.scrollTo(scrollLeft, scrollTop)
+function sectionManager(e) {
+  if (e.target.id === 'navAbout') {
+    toggleSection(about)
+    closeSections(about)
+  } else if (e.target.id === 'navPortfolio') {
+    toggleSection(portfolio)
+    closeSections(portfolio)
+  } else if (e.target.id === 'navContact') {
+    toggleSection(contact)
+    closeSections(contact)
   }
 }
 
-// Enable Scroll
-function enableScroll() {
-  window.onscroll = function() {}
+function toggleSection(s) {
+  if (s.classList.contains('show')) {
+    s.classList.remove('show')
+  } else {
+    s.classList.add('show')
+  }
 }
+
+const navName = document.querySelector('#navName')
+
+navName.addEventListener('click', function(){
+  about.classList.remove('show')
+  portfolio.classList.remove('show')
+  contact.classList.remove('show')
+})
+
+function closeSections(ss) {
+  if (ss === about) {
+    portfolio.classList.remove('show')
+    contact.classList.remove('show')
+  } else if (ss === portfolio) {
+    about.classList.remove('show')
+    contact.classList.remove('show')
+  } else {
+    about.classList.remove('show')
+    portfolio.classList.remove('show')
+  }
+}
+
+
+// Footer: Get current year
+const year = document.querySelector('.year')
+year.innerHTML = new Date().getFullYear()

@@ -6,10 +6,16 @@ body {
   background-color: #222020;
   scroll-behavior: smooth;
 }
+@media screen and (min-width: 768px) {
+  html,
+  body {
+    overflow: hidden;
+  }
+}
 
 section {
-  margin: 8.3333333333% 0 0;
-  padding: 8.3333333333% 8.3333333333% 0;
+  padding: 16.6666666667% 8.3333333333% 0;
+  transition: height 0.5s ease-in-out;
 }
 
 h1,
@@ -96,6 +102,7 @@ textarea {
   border: none;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
+  border-radius: 8px;
 }
 input::placeholder,
 textarea::placeholder {
@@ -135,6 +142,18 @@ textarea:focus {
 #shadow-host-companion {
   margin: 0;
   padding: 0;
+}
+
+.show {
+  height: calc(100% - 64px) !important;
+}
+
+#portfolio.show .container {
+  padding: 64px 0 51px !important;
+}
+
+#contact.show .container {
+  padding: 64px 0 99px !important;
 }
 
 /*# sourceMappingURL=reset.css.map */

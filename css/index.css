@@ -111,37 +111,42 @@ body::-webkit-scrollbar {
   text-align: center;
   padding: 25px;
 }
+@media screen and (min-width: 768px) {
+  #header #nav #navName {
+    cursor: pointer;
+  }
+}
 @media screen and (min-width: 1366px) {
   #header #nav #navName {
     font-size: 20px;
   }
 }
 #header #nav #navAbout {
-  display: none;
+  visibility: hidden;
 }
 @media screen and (min-width: 768px) {
   #header #nav #navAbout {
-    display: block;
+    visibility: visible;
     grid-column-start: 4;
     justify-self: center;
   }
 }
 #header #nav #navPortfolio {
-  display: none;
+  visibility: hidden;
 }
 @media screen and (min-width: 768px) {
   #header #nav #navPortfolio {
-    display: block;
+    visibility: visible;
     grid-column-start: 5;
     justify-self: center;
   }
 }
 #header #nav #navContact {
-  display: none;
+  visibility: hidden;
 }
 @media screen and (min-width: 768px) {
   #header #nav #navContact {
-    display: block;
+    visibility: visible;
     grid-column-start: 6;
     justify-self: center;
   }
@@ -156,6 +161,7 @@ body::-webkit-scrollbar {
   font-size: 16px;
   letter-spacing: 1px;
   white-space: nowrap;
+  cursor: pointer;
 }
 @media screen and (min-width: 768px) {
   #header .nav-link {
@@ -250,6 +256,22 @@ body::-webkit-scrollbar {
 #about {
   background-color: #222020;
 }
+@media screen and (min-width: 768px) {
+  #about {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    padding: 0 8.3333333333%;
+    background: linear-gradient(rgba(0, 0, 0, 0.0117647059) 0%, #000000 32%);
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    overflow: hidden;
+  }
+}
 #about #aboutCopy {
   padding: 0 0 4.1666666667%;
   font-family: "Montserrat", sans-serif;
@@ -297,13 +319,43 @@ body::-webkit-scrollbar {
 #portfolio {
   background-color: #222020;
 }
-#portfolio #projectContainer {
+@media screen and (min-width: 768px) {
+  #portfolio {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    padding: 0 8.3333333333%;
+    background: linear-gradient(rgba(0, 0, 0, 0.0117647059) 0%, #000000 32%);
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    overflow: hidden;
+  }
+}
+#portfolio .container {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+@media screen and (min-width: 768px) {
+  #portfolio .container {
+    overflow-y: scroll;
+  }
+}
+#portfolio .container::-webkit-scrollbar {
+  display: none;
+}
+#portfolio .container #projectContainer {
   padding: 32px 0 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-#portfolio #projectContainer .project {
+#portfolio .container #projectContainer .project {
   position: relative;
   width: 100%;
   max-width: 736.02px;
@@ -315,26 +367,31 @@ body::-webkit-scrollbar {
   flex-flow: column nowrap;
   text-align: center;
 }
-@media screen and (min-width: 1366px) {
-  #portfolio #projectContainer .project {
+@media screen and (min-width: 1024px) {
+  #portfolio .container #projectContainer .project {
     width: calc(50% - 64px);
     margin: 0 32px 64px;
   }
 }
-@media screen and (min-width: 1366px) {
-  #portfolio #projectContainer .project:hover, #portfolio #projectContainer .project:focus {
+@media screen and (min-width: 1920px) {
+  #portfolio .container #projectContainer .project {
+    width: calc(33.3333% - 64px);
+  }
+}
+@media screen and (min-width: 768px) {
+  #portfolio .container #projectContainer .project:hover, #portfolio .container #projectContainer .project:focus {
     transform: scale(1.02);
     filter: drop-shadow(0px 0px 32px #000000);
   }
-  #portfolio #projectContainer .project:hover .project-info, #portfolio #projectContainer .project:focus .project-info {
+  #portfolio .container #projectContainer .project:hover .project-info, #portfolio .container #projectContainer .project:focus .project-info {
     height: 100%;
   }
 }
-#portfolio #projectContainer .project img {
+#portfolio .container #projectContainer .project img {
   width: 100%;
   border-radius: 8px;
 }
-#portfolio #projectContainer .project .project-info {
+#portfolio .container #projectContainer .project .project-info {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -345,13 +402,13 @@ body::-webkit-scrollbar {
   transition: all 0.5s ease-in-out;
   overflow: hidden;
 }
-@media screen and (min-width: 1366px) {
-  #portfolio #projectContainer .project .project-info {
+@media screen and (min-width: 768px) {
+  #portfolio .container #projectContainer .project .project-info {
     height: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.0117647059) 10%, rgba(0, 0, 0, 0.7803921569) 75%);
   }
 }
-#portfolio #projectContainer .project .project-info .info {
+#portfolio .container #projectContainer .project .project-info .info {
   position: absolute;
   bottom: 16px;
   left: 16px;
@@ -360,7 +417,7 @@ body::-webkit-scrollbar {
   font-size: 24px;
 }
 @media screen and (min-width: 768px) {
-  #portfolio #projectContainer .project .project-info .info {
+  #portfolio .container #projectContainer .project .project-info .info {
     bottom: 32px;
     left: 32px;
     font-size: 32px;
@@ -369,40 +426,87 @@ body::-webkit-scrollbar {
 
 #contact {
   background-color: #222020;
+}
+@media screen and (min-width: 768px) {
+  #contact {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    padding: 0 8.3333333333%;
+    background: linear-gradient(rgba(0, 0, 0, 0.0117647059) 0%, #000000 32%);
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    overflow: hidden;
+  }
+}
+#contact .container {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
-#contact p {
+@media screen and (min-width: 768px) {
+  #contact .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  #contact .container div {
+    width: 50%;
+    padding-right: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #contact .container div h2 {
+    text-align: left;
+  }
+}
+#contact .container div p {
   padding: 0 0 64px;
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }
-#contact p span {
+@media screen and (min-width: 768px) {
+  #contact .container div p {
+    padding-right: 32px;
+    text-align: left;
+  }
+}
+#contact .container div p span {
   font-weight: 700;
 }
-#contact form {
-  width: 33.3333333333%;
+#contact .container form {
   max-width: 853.33px;
-  min-width: 300px;
+  min-width: 266.69px;
   display: flex;
   flex-flow: column wrap;
 }
-#contact form #contactSubmit {
+@media screen and (min-width: 768px) {
+  #contact .container form {
+    width: 33.3333333333%;
+  }
+}
+#contact .container form #contactSubmit {
   cursor: pointer;
-  width: 16.6666666667%;
-  min-width: 300px;
+  width: 25%;
+  min-width: 134.109px;
   margin: 32px auto 0;
   font-family: "Cinzel", serif;
   font-size: 20px;
   color: #ffffff;
-  background-color: #222020;
+  background-color: #000000;
+  border: 1px solid #ffffff;
   border-radius: 8px;
   filter: drop-shadow(0px 0px 16px #000000);
   -webkit-appearance: none;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease-in-out;
 }
-#contact form #contactSubmit:hover, #contact form #contactSubmit:focus {
+#contact .container form #contactSubmit:hover, #contact .container form #contactSubmit:focus {
   filter: drop-shadow(0px 0px 8px #ffffff);
 }
 
@@ -410,11 +514,19 @@ body::-webkit-scrollbar {
   margin-top: 16.6666666667%;
   padding: 5px 0;
   z-index: 1;
-  background-color: #222020;
+  background-color: #000000;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   text-align: center;
+}
+@media screen and (min-width: 768px) {
+  #footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 #footer a,
 #footer p {
