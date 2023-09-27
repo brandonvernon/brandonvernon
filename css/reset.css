@@ -5,11 +5,13 @@ body {
   color: #ffffff;
   background-color: #222020;
   scroll-behavior: smooth;
+}
+
+.index {
   overflow-x: hidden;
 }
 @media screen and (min-width: 768px) {
-  html,
-  body {
+  .index {
     overflow: hidden;
   }
 }

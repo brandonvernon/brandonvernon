@@ -22,6 +22,9 @@ body {
   color: $light;
   background-color: $dark;
   scroll-behavior: smooth;
+}
+
+.index {
   overflow-x: hidden;
 
   @media screen and (min-width: 768px) {

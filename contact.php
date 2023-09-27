@@ -59,9 +59,9 @@ $headers .= "Reply-To: $Email \r\n";
 mail($to,$email_subject,$email_body,$headers);
 
 $host = "127.0.0.1";
-$dbUsername = "root";
-$dbPassword = "";
-$dbname = "brandonvernon";
+$dbUsername = "brandrd9_root";
+$dbPassword = "42m2liC2dig!";
+$dbname = "brandrd9_brandonvernon";
 
 $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
 
