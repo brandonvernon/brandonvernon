@@ -1,0 +1,89 @@
+body {
+  text-align: center;
+  font-family: Orbitron;
+  font-variant: small-caps;
+  background-color: rgb(100, 160, 255);
+
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 100;
+  margin: 0.2em;
+}
+
+h2 {
+  margin: 1em 0 0.25em;
+  font-weight: 500;
+}
+
+h2:first-of-type {
+  margin-top: 0.5em;
+}
+
+#inputHeight{
+  font-family: Orbitron;
+  border : 0px;
+  border-radius : 20px;
+  moz-border-radius : 20px;
+  font-size : 14px;
+  color : #000000;
+  padding : 2px 16px;
+  background-color : #ffffff;
+}
+
+#inputWidth{
+  font-family: Orbitron;
+  border : 0px;
+  border-radius : 20px;
+  moz-border-radius : 20px;
+  font-size : 14px;
+  color : #000000;
+  padding : 2px 16px;
+  background-color : #ffffff;
+}
+
+
+#submit{
+  font-family: Orbitron;
+  border : 0px;
+  border-radius : 20px;
+  moz-border-radius : 20px;
+  font-size : 14px;
+  color : #000000;
+  padding : 2px 16px;
+  background-color : #ffffff;
+}
+
+#colorPicker {
+  opacity: 0;
+  border: none;
+}
+#colorPickerBorder {
+  margin: auto;
+  width: 48px;
+  height: 25px;
+}
+
+table,
+tr,
+td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+tr {
+  height: 20px;
+}
+
+td {
+  width: 20px;
+}
+
+input[type="number"] {
+  width: 6em;
+}

@@ -1,0 +1,7 @@
+@media only screen and (max-width: 599px) {
+
+  /* Deck of cards */
+
+  .deck {
+      width: auto;
+  }
