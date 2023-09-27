@@ -29,8 +29,8 @@
   <!--<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />-->
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.min.css">
+  <link rel="stylesheet" type="text/css" href="css/index.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat&display=swap"
@@ -74,10 +74,10 @@
     <div id="headerOverlay"></div>
     <!-- Navigation -->
     <nav id="nav">
-      <p id="navName">Brandon Vernon</p>
-      <span id="navAbout" class="nav-link">About</span>
-      <span id="navPortfolio" class="nav-link">Portfolio</span>
-      <span id="navContact" class="nav-link">Contact</span>
+      <p id="navName" tabindex="0" >Brandon Vernon</p>
+      <span id="navAbout" class="nav-link" tabindex="0">About</span>
+      <span id="navPortfolio" class="nav-link" tabindex="0">Portfolio</span>
+      <span id="navContact" class="nav-link" tabindex="0">Contact</span>
     </nav>
     <h1 id="headerHeadline"><span>UX/UI Designer</span> <span class="divider">|</span> <span>Web Developer</span></h1>
   </header>
@@ -94,11 +94,11 @@
       front-end frameworks.
     </p>
     <div id="aboutLinks">
-      <a href="https://www.linkedin.com/in/brandontvernon/" target="_blank" rel="noopener" id="link" class="info"><i
+      <a href="https://www.linkedin.com/in/brandontvernon/" target="_blank" rel="noopener" id="linkedIn" class="info" aria-label="LinkedIn"><i
           class="fa-brands fa-linkedin-in fa-2xl"></i></a>
       <a href="https://github.com/brandonvernon?tab=overview&from=2023-09-01&to=2023-09-26" target="_blank"
-        rel="noopener" id="link" class="info"><i class="fa-brands fa-github fa-2xl"></i></a>
-      <a href="pdf/brandon-vernon-resume.pdf" download="Brandon Vernon's Resume.pdf" class="cv">CV</a>
+        rel="noopener" class="info" aria-label="Github"><i class="fa-brands fa-github fa-2xl"></i></a>
+      <a href="pdf/brandon-vernon-resume.pdf" download="Brandon Vernon's Resume.pdf" id="cv" class="cv" aria-label="Download CV">CV</a>
     </div>
   </section>
 
@@ -107,7 +107,7 @@
     <div class="container">
       <h2>Portfolio</h2>
       <div id="projectContainer">
-        <a href="https://www.halliburton.com/en/home" target="_blank" rel="noopener" class="project">
+        <a href="https://www.halliburton.com/en/home" target="_blank" rel="noopener" class="project" id="halliburton">
           <img src="images/halliburton.jpg" alt="halliburton.com">
           <div class="project-info">
             <h3 class="info">Halliburton</h3>
@@ -131,7 +131,7 @@
             <h3 class="info">PerfConnect</h3>
           </div>
         </a>
-        <a href="http://www.brandonvernon.com/memory-game.html" target="_blank" rel="noopener" class="project">
+        <a href="http://www.brandonvernon.com/memory-game.html" target="_blank" rel="noopener" class="project" id="memory">
           <img src="images/memory.jpg" alt="Memory Game Web App">
           <div class="project-info">
             <h3 class="info">Memory Game</h3>
@@ -178,9 +178,9 @@
     <p>© <span class="year"></span> Brandon Vernon. All rights reserved.</p>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/particles.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/main.min.js"></script>
+  <script src="js/particles.min.js"></script>
+  <script src="js/app.min.js"></script>
 
 </body>
 

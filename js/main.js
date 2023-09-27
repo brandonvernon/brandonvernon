@@ -42,6 +42,7 @@ const about = document.querySelector('#about'),
 
 for (let i = 0; i < navLinks.length; i++) {
   navLinks[i].addEventListener('click', sectionManager)
+  navLinks[i].addEventListener('keyup', sectionManagerKey)
 }
 
 function sectionManager(e) {
@@ -54,6 +55,25 @@ function sectionManager(e) {
   } else if (e.target.id === 'navContact') {
     toggleSection(contact)
     closeSections(contact)
+  }
+}
+
+function sectionManagerKey(e) {
+  e.preventDefault()
+  if (e.keyCode === 13) {
+    if (e.target.id === 'navAbout') {
+      toggleSection(about)
+      closeSections(about)
+      document.querySelector('#linkedIn').focus()
+    } else if (e.target.id === 'navPortfolio') {
+      toggleSection(portfolio)
+      closeSections(portfolio)
+      document.querySelector('#halliburton').focus()
+    } else if (e.target.id === 'navContact') {
+      toggleSection(contact)
+      closeSections(contact)
+      document.querySelector('#email').focus()
+    }
   }
 }
 
@@ -73,6 +93,15 @@ navName.addEventListener('click', function(){
   contact.classList.remove('show')
 })
 
+navName.addEventListener('keyup', function(e){
+  e.preventDefault()
+  if (e.keyCode === 13) {
+    about.classList.remove('show')
+    portfolio.classList.remove('show')
+    contact.classList.remove('show')
+  }
+})
+
 function closeSections(ss) {
   if (ss === about) {
     portfolio.classList.remove('show')
@@ -86,6 +115,31 @@ function closeSections(ss) {
   }
 }
 
+document.addEventListener('keyup', function(e){
+  if (e.keyCode === 9) {
+    if (e.target.id === 'linkedIn') {
+      about.classList.add('show')
+      portfolio.classList.remove('show')
+      contact.classList.remove('show')
+    } else if (e.target.id === 'halliburton') {
+      about.classList.remove('show')
+      portfolio.classList.add('show')
+      contact.classList.remove('show')
+    } else if (e.target.id === 'email') {
+      about.classList.remove('show')
+      portfolio.classList.remove('show')
+      contact.classList.add('show')
+    } else if (e.target.id === 'memory') {
+      about.classList.remove('show')
+      portfolio.classList.add('show')
+      contact.classList.remove('show')
+    } else if (e.target.id === 'cv') {
+      about.classList.add('show')
+      portfolio.classList.remove('show')
+      contact.classList.remove('show')
+    }
+  }
+})
 
 // Footer: Get current year
 const year = document.querySelector('.year')
