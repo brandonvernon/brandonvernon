@@ -351,8 +351,7 @@ body::-webkit-scrollbar {
       color: #969593;
       transition: all 0.3s ease-in-out;
 
-      &:hover,
-      &:focus {
+      &:hover {
         @media screen and (min-width: 1366px) {
           color: $light;
         }
@@ -416,8 +415,7 @@ body::-webkit-scrollbar {
           width: calc(33.3333% - 64px);
         }
 
-        &:hover,
-        &:focus {
+        &:hover {
           @media screen and (min-width: 768px) {
             filter: drop-shadow(0px 0px 32px #000000);
 

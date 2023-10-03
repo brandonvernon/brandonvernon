@@ -308,9 +308,8 @@ body::-webkit-scrollbar {
   transition: all 0.3s ease-in-out;
 }
 @media screen and (min-width: 1366px) {
-  #about #aboutLinks i:hover, #about #aboutLinks i:focus,
-  #about #aboutLinks a.cv:hover,
-  #about #aboutLinks a.cv:focus {
+  #about #aboutLinks i:hover,
+  #about #aboutLinks a.cv:hover {
     color: #ffffff;
   }
 }
@@ -376,10 +375,10 @@ body::-webkit-scrollbar {
   }
 }
 @media screen and (min-width: 768px) {
-  #portfolio .container #projectContainer .project:hover, #portfolio .container #projectContainer .project:focus {
+  #portfolio .container #projectContainer .project:hover {
     filter: drop-shadow(0px 0px 32px #000000);
   }
-  #portfolio .container #projectContainer .project:hover .project-info, #portfolio .container #projectContainer .project:focus .project-info {
+  #portfolio .container #projectContainer .project:hover .project-info {
     height: 100%;
   }
 }
