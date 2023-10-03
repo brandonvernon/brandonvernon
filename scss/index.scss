@@ -331,7 +331,6 @@ body::-webkit-scrollbar {
     a {
       margin: 0 6px;
       padding: 16px;
-      transition: all 0.5s ease;
 
       @media screen and (min-width: 379px) {
         margin: 0 16px;
@@ -356,7 +355,6 @@ body::-webkit-scrollbar {
       &:focus {
         @media screen and (min-width: 1366px) {
           color: $light;
-          transform: scale(1.2);
         }
       }
     }
@@ -383,9 +381,7 @@ body::-webkit-scrollbar {
 
   .container {
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
 
     @media screen and (min-width: 768px) {
       overflow-y: scroll;
@@ -407,7 +403,7 @@ body::-webkit-scrollbar {
         margin: 0 auto 48px;
         border-radius: 8px;
         filter: drop-shadow(0px 0px 16px #000000);
-        transition: all 0.5s ease-in-out;
+        transition: all 0.3s ease-in-out;
         @include flex-column-nowrap;
         text-align: center;
 
@@ -423,7 +419,6 @@ body::-webkit-scrollbar {
         &:hover,
         &:focus {
           @media screen and (min-width: 768px) {
-            transform: scale(1.02);
             filter: drop-shadow(0px 0px 32px #000000);
 
             .project-info {
@@ -455,18 +450,60 @@ body::-webkit-scrollbar {
 
           .info {
             position: absolute;
-            bottom: 16px;
+            bottom: 40px;
             left: 16px;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             font-size: 24px;
 
             @media screen and (min-width: 768px) {
-              bottom: 32px;
+              bottom: 56px;
               left: 32px;
               font-size: 32px;
             }
           }
+
+          h4 {
+            position: absolute;
+            bottom: 16px;
+            left: 18px;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+
+            @media screen and (min-width: 768px) {
+              bottom: 32px;
+              left: 34px;
+            }
+          }
+        }
+      }
+    }
+
+    .companies-headline {
+      padding: 32px 0;
+      font-size: 24px;
+
+      @media screen and (min-width: 768px) {
+        font-size: 32px;
+      }
+    }
+
+    #companies {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+
+      a {
+        width: 100px;
+        padding: 16px;
+
+        @media screen and (min-width: 348px) {
+          width: 113px;
+        }
+
+        img {
+          width: 100%;
         }
       }
     }

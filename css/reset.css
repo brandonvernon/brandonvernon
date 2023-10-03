@@ -1,5 +1,10 @@
+html {
+  overflow-x: hidden;
+}
+
 html,
 body {
+  width: 100vw;
   margin: 0;
   font-family: "Cinzel", serif;
   color: #ffffff;
@@ -151,11 +156,7 @@ textarea:focus {
   height: calc(100% - 64px) !important;
 }
 
-#portfolio.show .container {
-  padding: 64px 0 51px !important;
-}
-
-#contact.show .container {
+#portfolio.show .container, #contact.show .container {
   padding: 64px 0 99px !important;
 }
 
