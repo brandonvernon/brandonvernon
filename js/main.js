@@ -49,12 +49,15 @@ function sectionManager(e) {
   if (e.target.id === 'navAbout') {
     toggleSection(about)
     closeSections(about)
+    document.querySelector('#linkedIn').focus()
   } else if (e.target.id === 'navPortfolio') {
     toggleSection(portfolio)
     closeSections(portfolio)
+    document.querySelector('#halliburton').focus()
   } else if (e.target.id === 'navContact') {
     toggleSection(contact)
     closeSections(contact)
+    document.querySelector('#email').focus()
   }
 }
 
@@ -129,7 +132,7 @@ document.addEventListener('keyup', function(e){
       about.classList.remove('show')
       portfolio.classList.remove('show')
       contact.classList.add('show')
-    } else if (e.target.id === 'memory') {
+    } else if (e.target.id === 'ups') {
       about.classList.remove('show')
       portfolio.classList.add('show')
       contact.classList.remove('show')
