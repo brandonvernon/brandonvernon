@@ -1,0 +1,228 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root,
+.App {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url('img/background.png');
+  font-family: 'Aladin', cursive;
+  color: white;
+  font-size: 24px;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 8fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  place-self: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 7cqh;
+}
+
+/* Score Panel */
+
+.score-panel {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  place-self: center;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@media screen and (min-width: 811px) {
+  .score-panel {
+    flex-flow: row nowrap;
+  }
+}
+
+.score-panel span {
+  margin: 8px 16px;
+}
+
+.score-panel .restart {
+  margin: 8px 0;
+  float: right;
+  cursor: pointer;
+}
+
+.score-panel .restart button {
+  position: relative;
+  bottom: 5px;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Deck of cards */
+
+.container {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  place-self: center;
+  max-width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background: linear-gradient(transparent 25%, rgba(135, 100, 20, 0.5));
+  margin: 0;
+  padding: 32px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.container .card {
+  height: calc(100% - 20.23%);
+  width: calc(100% - 20.23%);
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 0;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 25px 5px rgba(135, 100, 20, 0.5);
+}
+
+.container .card.is-flipped {
+  background: rgba(0, 0, 0, 0.5);
+  cursor: default;
+  font-size: 33px;
+  animation-name: show;
+  animation-duration: 0.5s;
+}
+
+.container .card.is-match {
+  cursor: default;
+  background: rgba(135, 100, 20, 0.5);
+  font-size: 33px;
+  animation-name: match;
+  animation-duration: 0.5s;
+}
+
+/* Modal */
+
+.MuiPaper-root {
+  text-align: center;
+  color: rgb(135, 100, 20) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(135, 100, 20, 0.5);
+  animation-name: match;
+  animation-duration: 0.5s;
+}
+
+.MuiTypography-h6 {
+  font-family: 'Aladin', cursive;
+  font-size: 32px;
+}
+
+.MuiDialogContentText-root {
+  text-align: left !important;
+  color: #ffffff !important;
+}
+
+.MuiButton-root {
+  margin: 0 auto !important;
+  font-family: 'Aladin', cursive !important;
+}
+
+.MuiButton-textPrimary {
+  font-size: 20px !important;
+  color: rgb(135, 100, 20) !important;
+}
+
+/* Animations */
+
+@keyframes show {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes match {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 1.25, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 0.75, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 1.15, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 0.95, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 1.05, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
