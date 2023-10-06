@@ -436,10 +436,18 @@ body::-webkit-scrollbar {
           bottom: 0;
           left: 0;
           height: 100%;
-          background: linear-gradient(#00000003 10%, #000000C7 100%);
+          background: linear-gradient(#00000003 10%, #000000C7 50%);
           border-radius: 8px;
           transition: all 0.5s ease-in-out;
           overflow: hidden;
+
+          @media screen and (min-width: 375px) {
+            background: linear-gradient(#00000003 10%, #000000C7 60%);
+          }
+
+          @media screen and (min-width: 428px) {
+            background: linear-gradient(#00000003 10%, #000000C7 65%);
+          }
 
           @media screen and (min-width: 768px) {
             height: 0;
@@ -464,14 +472,24 @@ body::-webkit-scrollbar {
           h4 {
             position: absolute;
             bottom: 16px;
-            left: 18px;
+            left: 17px;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             font-size: 16px;
+            text-align: left;
 
             @media screen and (min-width: 768px) {
               bottom: 32px;
               left: 34px;
+            }
+          }
+
+          img {
+            width: 24px;
+            margin-left: 8px;
+
+            @media screen and (min-width: 768px) {
+              width: 32px;
             }
           }
         }
