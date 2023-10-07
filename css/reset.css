@@ -37,7 +37,7 @@ h6 {
   margin-block-start: 0;
   margin-block-end: 0;
   font-family: "Cinzel", serif;
-  font-size: 9VW;
+  font-size: 9vw;
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1;
@@ -50,7 +50,7 @@ h6 {
   h4,
   h5,
   h6 {
-    font-size: 5VW;
+    font-size: 5vw;
   }
 }
 
@@ -153,10 +153,10 @@ textarea:focus {
 }
 
 .show {
-  height: calc(100% - 64px) !important;
+  height: calc(100% - 96px) !important;
 }
 
-#portfolio.show .container, #contact.show .container {
+#contact.show .container {
   padding: 64px 0 99px !important;
 }
 

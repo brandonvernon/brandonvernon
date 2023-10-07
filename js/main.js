@@ -144,6 +144,46 @@ document.addEventListener('keyup', function(e){
   }
 })
 
+// Projects
+const projectContainer = document.getElementById('projectContainer');
+const projects = projectContainer.querySelectorAll('.project');
+
+function checkLastRow() {
+
+  console.log('fire')
+  // Check for wrap
+  if (window.getComputedStyle(projectContainer).flexWrap !== 'wrap') {
+    return;
+  }
+
+  // Get last row projects
+  const lastRowProjects = [];
+  let top = 0;
+
+  projects.forEach(project => {
+    if(project.offsetTop > top) {
+      top = project.offsetTop;
+      lastRowProjects.length = 0; 
+    }
+    lastRowProjects.push(project);
+  });
+  
+  // Set margin on last row
+  projects.forEach(project => {
+    if(lastRowProjects.includes(project)) {
+      project.style.marginBottom = '0';
+    } else {
+      project.style.marginBottom = ''; 
+    }
+  });
+
+}
+
+// Initial check
+checkLastRow();
+
+// Check on resize
+window.addEventListener('resize', checkLastRow);
 // Footer: Get current year
 const year = document.querySelector('.year')
 year.innerHTML = new Date().getFullYear()

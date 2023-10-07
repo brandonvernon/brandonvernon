@@ -209,7 +209,6 @@ body::-webkit-scrollbar {
     }
 
     @media screen and (min-width: 1366px) {
-
       &:before,
       &:after {
         content: '';
@@ -253,8 +252,8 @@ body::-webkit-scrollbar {
     justify-self: center;
     align-self: center;
     text-align: center;
-    color: $light;
     font-size: 29px;
+    color: $light;
     line-height: 1.25;
     filter: drop-shadow(4px 4px 8px #000000) drop-shadow(-4px -4px 8px #969593);
     opacity: 0;
@@ -263,37 +262,37 @@ body::-webkit-scrollbar {
     @media screen and (min-width: 360px) {
       font-size: 33px;
     }
-
+  
     @media screen and (min-width: 375px) {
       font-size: 34px;
     }
-
+  
     @media screen and (min-width: 496px) {
       font-size: 46px;
     }
-
+  
     @media screen and (min-width: 768px) {
       font-size: 73px;
     }
-
+  
     @media screen and (min-width: 1024px) {
       font-size: 94px;
     }
-  }
 
-  span {
-    display: block;
-
-    @media screen and (min-width: 1920px) {
-      display: inline;
+    span {
+      display: block;
+  
+      @media screen and (min-width: 1920px) {
+        display: inline;
+      }
     }
-  }
-
-  .divider {
-    display: none;
-
-    @media screen and (min-width: 1920px) {
-      display: inline;
+  
+    .divider {
+      display: none;
+  
+      @media screen and (min-width: 1920px) {
+        display: inline;
+      }
     }
   }
 }
@@ -372,17 +371,19 @@ body::-webkit-scrollbar {
     padding: 0 $oneCol;
     background: linear-gradient(#00000003 0%, #000000 32%);
     z-index: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    overflow: hidden;
+    overflow-y: hidden;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: auto 1fr auto auto 35px;
   }
 
-  .container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  #projectContainer {
+    @include flex-row;
+    justify-content: center;
 
     @media screen and (min-width: 768px) {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
       overflow-y: scroll;
     }
 
@@ -390,137 +391,136 @@ body::-webkit-scrollbar {
       display: none;
     }
 
-    #projectContainer {
-      padding: 32px 0 0;
-      @include flex-row;
-      justify-content: center;
+    .project {
+      position: relative;
+      width: 100%;
+      max-width: 736.02px;
+      margin: 0 auto 48px;
+      border-radius: 8px;
+      filter: drop-shadow(0px 0px 16px #000000);
+      transition: all 0.3s ease-in-out;
+      @include flex-column-nowrap;
+      text-align: center;
 
-      .project {
-        position: relative;
+      @media screen and (min-width: 1024px) {
+        width: calc(50% - 64px);
+        margin: 0 32px 56px;
+      }
+
+      @media screen and (min-width: 1920px) {
+        width: calc(33.3333% - 64px);
+      }
+
+      &:hover {
+        @media screen and (min-width: 768px) {
+          filter: drop-shadow(0px 0px 32px #000000);
+
+          .project-info {
+            height: 100%;
+          }
+        }
+      }
+
+      img {
         width: 100%;
-        max-width: 736.02px;
-        margin: 0 auto 48px;
         border-radius: 8px;
-        filter: drop-shadow(0px 0px 16px #000000);
-        transition: all 0.3s ease-in-out;
-        @include flex-column-nowrap;
-        text-align: center;
+      }
 
-        @media screen and (min-width: 1024px) {
-          width: calc(50% - 64px);
-          margin: 0 32px 64px;
+      .project-info {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        background: linear-gradient(#00000003 10%, #000000C7 50%);
+        border-radius: 8px;
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+
+        @media screen and (min-width: 375px) {
+          background: linear-gradient(#00000003 10%, #000000C7 60%);
         }
 
-        @media screen and (min-width: 1920px) {
-          width: calc(33.3333% - 64px);
+        @media screen and (min-width: 428px) {
+          background: linear-gradient(#00000003 10%, #000000C7 65%);
         }
 
-        &:hover {
-          @media screen and (min-width: 768px) {
-            filter: drop-shadow(0px 0px 32px #000000);
-
-            .project-info {
-              height: 100%;
-            }
-          }
-        }
-
-        img {
+        @media screen and (min-width: 768px) {
           width: 100%;
-          border-radius: 8px;
+          height: 0;
+          background: linear-gradient(#00000003 10%, #000000C7 75%);
         }
 
-        .project-info {
+        .info {
           position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          height: 100%;
-          background: linear-gradient(#00000003 10%, #000000C7 50%);
-          border-radius: 8px;
-          transition: all 0.5s ease-in-out;
-          overflow: hidden;
-
-          @media screen and (min-width: 375px) {
-            background: linear-gradient(#00000003 10%, #000000C7 60%);
-          }
-
-          @media screen and (min-width: 428px) {
-            background: linear-gradient(#00000003 10%, #000000C7 65%);
-          }
+          bottom: 40px;
+          left: 16px;
+          padding: 0;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 24px;
 
           @media screen and (min-width: 768px) {
-            height: 0;
-            background: linear-gradient(#00000003 10%, #000000C7 75%);
-          }
-
-          .info {
-            position: absolute;
-            bottom: 40px;
-            left: 16px;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-
-            @media screen and (min-width: 768px) {
-              bottom: 56px;
-              left: 32px;
-              font-size: 32px;
-            }
-          }
-
-          h4 {
-            position: absolute;
-            bottom: 16px;
-            left: 17px;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            text-align: left;
-
-            @media screen and (min-width: 768px) {
-              bottom: 32px;
-              left: 34px;
-            }
-          }
-
-          img {
-            width: 24px;
-            margin-left: 8px;
-
-            @media screen and (min-width: 768px) {
-              width: 32px;
-            }
+            bottom: 56px;
+            left: 32px;
+            font-size: 32px;
           }
         }
-      }
-    }
 
-    .companies-headline {
-      padding: 32px 0;
-      font-size: 24px;
+        h4 {
+          position: absolute;
+          bottom: 16px;
+          left: 17px;
+          padding: 0;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 16px;
+          text-align: left;
 
-      @media screen and (min-width: 768px) {
-        font-size: 32px;
-      }
-    }
-
-    #companies {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-
-      a {
-        width: 100px;
-        padding: 16px;
-
-        @media screen and (min-width: 348px) {
-          width: 113px;
+          @media screen and (min-width: 768px) {
+            bottom: 32px;
+            left: 34px;
+          }
         }
 
         img {
-          width: 100%;
+          width: 24px;
+          margin-left: 8px;
+
+          @media screen and (min-width: 768px) {
+            width: 32px;
+          }
         }
+      }
+    }
+  }
+
+  .companies-headline {
+    padding: 32px 0;
+    font-size: 24px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 32px;
+    }
+  }
+
+  #companies {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 0 67px;
+    }
+
+    a {
+      width: 100px;
+      padding: 16px;
+
+      @media screen and (min-width: 348px) {
+        width: 113px;
+      }
+
+      img {
+        width: 100%;
       }
     }
   }
