@@ -368,7 +368,7 @@ body::-webkit-scrollbar {
 }
 @media screen and (min-width: 1920px) {
   #portfolio #projectContainer .project {
-    width: calc(33.3333% - 64px);
+    width: calc(33.3333% - 80px);
   }
 }
 @media screen and (min-width: 768px) {

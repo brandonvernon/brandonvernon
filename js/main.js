@@ -63,7 +63,7 @@ function sectionManager(e) {
 
 function sectionManagerKey(e) {
   e.preventDefault()
-  if (e.keyCode === 13) {
+  if (e.key === 13) {
     if (e.target.id === 'navAbout') {
       toggleSection(about)
       closeSections(about)
@@ -90,15 +90,15 @@ function toggleSection(s) {
 
 const navName = document.querySelector('#navName')
 
-navName.addEventListener('click', function(){
+navName.addEventListener('click', function () {
   about.classList.remove('show')
   portfolio.classList.remove('show')
   contact.classList.remove('show')
 })
 
-navName.addEventListener('keyup', function(e){
+navName.addEventListener('keyup', function (e) {
   e.preventDefault()
-  if (e.keyCode === 13) {
+  if (e.key === 13) {
     about.classList.remove('show')
     portfolio.classList.remove('show')
     contact.classList.remove('show')
@@ -118,8 +118,8 @@ function closeSections(ss) {
   }
 }
 
-document.addEventListener('keyup', function(e){
-  if (e.keyCode === 9) {
+document.addEventListener('keyup', function (e) {
+  if (e.key === 9) {
     if (e.target.id === 'linkedIn') {
       about.classList.add('show')
       portfolio.classList.remove('show')
@@ -144,46 +144,6 @@ document.addEventListener('keyup', function(e){
   }
 })
 
-// Projects
-const projectContainer = document.getElementById('projectContainer');
-const projects = projectContainer.querySelectorAll('.project');
-
-function checkLastRow() {
-
-  console.log('fire')
-  // Check for wrap
-  if (window.getComputedStyle(projectContainer).flexWrap !== 'wrap') {
-    return;
-  }
-
-  // Get last row projects
-  const lastRowProjects = [];
-  let top = 0;
-
-  projects.forEach(project => {
-    if(project.offsetTop > top) {
-      top = project.offsetTop;
-      lastRowProjects.length = 0; 
-    }
-    lastRowProjects.push(project);
-  });
-  
-  // Set margin on last row
-  projects.forEach(project => {
-    if(lastRowProjects.includes(project)) {
-      project.style.marginBottom = '0';
-    } else {
-      project.style.marginBottom = ''; 
-    }
-  });
-
-}
-
-// Initial check
-checkLastRow();
-
-// Check on resize
-window.addEventListener('resize', checkLastRow);
 // Footer: Get current year
 const year = document.querySelector('.year')
 year.innerHTML = new Date().getFullYear()
