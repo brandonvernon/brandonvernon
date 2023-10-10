@@ -74,12 +74,34 @@ export default function App() {
       ? JSON.parse(localStorage.getItem("lowestMoves"))
       : '-'
   );
+  const [lowestMovesTime, setLowestMovesTime] = useState(
+    localStorage.getItem("lowestMovesTime")
+      ? JSON.parse(localStorage.getItem("lowestMovesTime"))
+      : '-'
+  );
   const [quickestTime, setQuickestTime] = useState(
     localStorage.getItem("quickestTime")
       ? JSON.parse(localStorage.getItem("quickestTime"))
       : '-'
   );
+  const [quickestTimeMoves, setQuickestTimeMoves] = useState(
+    localStorage.getItem("quickestTimeMoves")
+      ? JSON.parse(localStorage.getItem("quickestTimeMoves"))
+      : '-'
+  );
+  const [name, setName] = useState('Player');
+  const [highScores, setHighScores] = useState([]);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [rowNumber, setRowNumber] = useState(1);
   const timeout = useRef(null);
+
+  const openLeaderboard = () => {
+    setShowLeaderboard(true);
+  };
+
+  const closeLeaderboard = () => {
+    setShowLeaderboard(false);
+  };
 
   const disable = () => {
     setShouldDisableAllCards(true);
@@ -96,10 +118,21 @@ export default function App() {
       if (lowestMoves === '-') {
         setLowestMoves(moves);
         localStorage.setItem("lowestMoves", moves);
+        setLowestMovesTime(time);
+        localStorage.setItem("lowestMovesTime", time);
       } else {
         const lowestScore = Math.min(moves, lowestMoves);
         setLowestMoves(lowestScore);
         localStorage.setItem("lowestMoves", lowestScore);
+        if (moves == lowestMoves) {
+          if (time < lowestMovesTime) {
+            setLowestMovesTime(time);
+            localStorage.setItem("lowestMovesTime", time);
+          }
+        } else if (moves < lowestMoves) {
+          setLowestMovesTime(time);
+          localStorage.setItem("lowestMovesTime", time);
+        }
       }
 
       // Time
@@ -107,12 +140,27 @@ export default function App() {
       if (quickestTime === '-') {
         setQuickestTime(time);
         localStorage.setItem("quickestTime", time);
+        setQuickestTimeMoves(moves);
+        localStorage.setItem("quickestTimeMoves", moves);
         clearInterval(myTimer);
       } else {
         const lowestTime = Math.min(time, quickestTime);
         setQuickestTime(lowestTime);
         localStorage.setItem("quickestTime", lowestTime);
+        if (time == quickestTime) {
+          if (moves < quickestTimeMoves) {
+            setQuickestTimeMoves(moves);
+            localStorage.setItem("quickestTimeMoves", moves);
+          }
+        } else if (time < quickestTime) {
+          setQuickestTimeMoves(moves);
+          localStorage.setItem("quickestTimeMoves", moves);
+        }
         clearInterval(myTimer);
+      }
+
+      if (name === '') {
+        setName('Player');
       }
     }
   };
@@ -184,6 +232,53 @@ export default function App() {
     setCards(shuffleCards(cardsArray.concat(cardsArray)));
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("https://www.brandonvernon.com/memory.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          player: name,
+          moves: moves,
+          time: time,
+        }),
+      });
+      if (response.ok) {
+        // Reset the form and retrieve updated data
+        setName('Player');
+        fetchData();
+      } else {
+        console.error("Error submitting data.");
+      }
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
+  };
+
+  const fetchData = async () => {
+    try {
+      // Fetch game data from the PHP script
+      const response = await fetch("https://www.brandonvernon.com/memory.php?retrieve=true");
+      if (response.ok) {
+        const data = await response.json();
+        // Update your state with the retrieved data
+        setHighScores(data);
+      } else {
+        console.error("Error fetching data.");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Initial data retrieval
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
       <header>
@@ -191,16 +286,20 @@ export default function App() {
       </header>
 
       <section className="score-panel">
-        <span className="moves">Moves <span>{moves}</span></span>
-        <span className="time">Time <span>{time}</span></span>
-        <span className="lowest-moves">Lowest Moves <span>{lowestMoves}</span></span>
-        <span className="quickest-time">Best Time <span>{quickestTime}</span></span>
-
-        <div className="restart">
-          <Button onClick={handleRestart}>
-            <i className="fa fa-repeat"></i>
-          </Button>
+        <div>
+          <span className="moves">Moves:<span>{moves}</span></span>
+          <span className="time">Time:<span>{time}</span></span>
+          <div className="restart">
+            <Button onClick={handleRestart}>
+              <i className="fa fa-repeat"></i>
+            </Button>
+          </div>
         </div>
+        <div>
+          <span className="lowest-moves">Lowest Moves:<span>{lowestMoves} moves in {lowestMovesTime} seconds</span></span>
+          <span className="quickest-time">Best Time:<span>{quickestTime} seconds in {quickestTimeMoves} moves</span></span>
+        </div>
+        <Button onClick={openLeaderboard}>Leaderboard</Button>
       </section>
 
       <ul className="container">
@@ -220,20 +319,67 @@ export default function App() {
       </ul>
 
       <Dialog
+        open={showLeaderboard}
+        onClose={closeLeaderboard}
+        aria-labelledby="leaderboard-title"
+      >
+        <DialogTitle id="leaderboard-title">Leaderboard</DialogTitle>
+        <DialogContent>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Player</th>
+                <th>Moves</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {highScores.map((score, index) => (
+                <tr key={index}>
+                  <td>{rowNumber + index}</td>
+                  <td>{score.player}</td>
+                  <td>{score.moves}</td>
+                  <td>{score.time}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeLeaderboard} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
         open={showModal}
         disableBackdropClick
         disableEscapeKeyDown
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby="game-over-title"
+        aria-describedby="game-over-description"
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="game-over-title">
           Brilliant!
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            You completed the game in {moves} moves in {time} seconds. Your best score is{" "}
-            {lowestMoves} moves in {quickestTime} seconds.
+          <DialogContentText id="game-over-description">
+            You completed the game in {moves} moves in {time} seconds<br></br>
+            Lowest Moves: {lowestMoves} moves in {lowestMovesTime} seconds<br></br>
+            Best Time: {quickestTime} seconds in {quickestTimeMoves} moves
           </DialogContentText>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Name:
+              <input
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
+            </label>
+            <button type="submit">SUBMIT</button>
+          </form>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleRestart} color="primary">
