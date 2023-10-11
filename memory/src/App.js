@@ -141,13 +141,13 @@ export default function App() {
   // Define the available card options
   const cardOptions = [
     { label: "16 Cards", value: 16 },
-    { label: "32 Cards", value: 32 },
+    { label: "36 Cards", value: 36 },
   ];
 
   const [selectedCardCount, setSelectedCardCount] = useState(16); // Default to 16 cards
 
   // Update the cards array based on the selected count
-  const cardsArrayForSelectedCount = selectedCardCount === 32 ? cardsArrayPlus : cardsArray;
+  const cardsArrayForSelectedCount = selectedCardCount === 36 ? cardsArrayPlus : cardsArray;
 
   // Set a shuffled deck of cards based on the selected count
   const [cards, setCards] = useState(() => shuffleCards(cardsArrayForSelectedCount.concat(cardsArrayForSelectedCount)));
@@ -203,7 +203,7 @@ export default function App() {
   const [name, setName] = useState("");
   const [highScores, setHighScores] = useState([]);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
-  const [rowNumber, setRowNumber] = useState(1);
+  const rowNumber = 1;
   const [userPosition, setUserPosition] = useState(-1);
   const [highlightUserScore, setHighlightUserScore] = useState(false);
   const timeout = useRef(null);
@@ -214,10 +214,6 @@ export default function App() {
 
   const closeLeaderboard = () => {
     setShowLeaderboard(false);
-  };
-
-  const clearUserPosition = () => {
-    setUserPosition(-1);
   };
 
   const disable = () => {
@@ -233,16 +229,13 @@ export default function App() {
     setSelectedCardCount(selectedCount);
 
     // Reset the game with the new card count
-    const selectedCardsArray = selectedCount === 32 ? cardsArrayPlus : cardsArray;
+    const selectedCardsArray = selectedCount === 36 ? cardsArrayPlus : cardsArray;
     setCards(shuffleCards(selectedCardsArray.concat(selectedCardsArray)));
-
-    // Update the cards array for the selected count
-    const cardsArrayForSelectedCount = selectedCardsArray;
 
     // Add or remove the 'plus' class based on the selected card count
     const containerElement = document.querySelector(".container");
     if (containerElement) {
-      if (selectedCount === 32) {
+      if (selectedCount === 36) {
         containerElement.classList.add("plus");
       } else {
         containerElement.classList.remove("plus");
@@ -254,7 +247,7 @@ export default function App() {
   };
 
   const checkCompletion = () => {
-    const selectedCardsArray = selectedCardCount === 32 ? cardsArrayPlus : cardsArray;
+    const selectedCardsArray = selectedCardCount === 36 ? cardsArrayPlus : cardsArray;
 
     if (Object.keys(clearedCards).length === selectedCardsArray.length) {
       setShowModal(true);
@@ -270,7 +263,7 @@ export default function App() {
           const lowestScore = Math.min(moves, lowestMoves);
           setLowestMoves(lowestScore);
           localStorage.setItem("lowestMoves", lowestScore);
-          if (moves == lowestMoves) {
+          if (moves === lowestMoves) {
             if (time < lowestMovesTime) {
               setLowestMovesTime(time);
               localStorage.setItem("lowestMovesTime", time);
@@ -290,7 +283,7 @@ export default function App() {
           const lowestScorePlus = Math.min(moves, lowestMovesPlus);
           setLowestMovesPlus(lowestScorePlus);
           localStorage.setItem("lowestMovesPlus", lowestScorePlus);
-          if (moves == lowestMovesPlus) {
+          if (moves === lowestMovesPlus) {
             if (time < lowestMovesTimePlus) {
               setLowestMovesTimePlus(time);
               localStorage.setItem("lowestMovesTimePlus", time);
@@ -315,7 +308,7 @@ export default function App() {
           const lowestTime = Math.min(time, quickestTime);
           setQuickestTime(lowestTime);
           localStorage.setItem("quickestTime", lowestTime);
-          if (time == quickestTime) {
+          if (time === quickestTime) {
             if (moves < quickestTimeMoves) {
               setQuickestTimeMoves(moves);
               localStorage.setItem("quickestTimeMoves", moves);
@@ -337,7 +330,7 @@ export default function App() {
           const lowestTimePlus = Math.min(time, quickestTimePlus);
           setQuickestTimePlus(lowestTimePlus);
           localStorage.setItem("quickestTimePlus", lowestTimePlus);
-          if (time == quickestTime) {
+          if (time === quickestTime) {
             if (moves < quickestTimeMovesPlus) {
               setQuickestTimeMovesPlus(moves);
               localStorage.setItem("quickestTimeMovesPlus", moves);
@@ -393,11 +386,14 @@ export default function App() {
     return () => {
       clearTimeout(timeout);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openCards]);
 
   useEffect(() => {
     checkCompletion();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clearedCards]);
+
   const checkIsFlipped = (index) => {
     return openCards.includes(index);
   };
@@ -417,7 +413,7 @@ export default function App() {
     setShouldDisableAllCards(false);
 
     // Choose the appropriate cards array based on the selected card count
-    const selectedCardsArray = selectedCardCount === 32 ? cardsArrayPlus : cardsArray;
+    const selectedCardsArray = selectedCardCount === 36 ? cardsArrayPlus : cardsArray;
 
     // set a shuffled deck of cards
     setCards(shuffleCards(selectedCardsArray.concat(selectedCardsArray)));
@@ -458,7 +454,7 @@ export default function App() {
         if (response.ok) {
           // Reset the form and retrieve updated data
           setName("");
-          fetchData();
+          fetchData(selectedCardCount);
         } else {
           console.error("Error submitting data.");
         }
@@ -484,7 +480,18 @@ export default function App() {
       if (response.ok) {
         const data = await response.json();
 
-        const userIndex = data.findIndex((score) => score.player === name);
+        const userScore = {
+          player: name, 
+          moves: moves.toString(),
+          time: time.toString()
+        };
+
+        const userIndex = data.findIndex(item => 
+          item.player === userScore.player &&
+          item.moves === userScore.moves &&
+          item.time === userScore.time
+        );
+        
         setUserPosition(userIndex);
 
         // Check if the user's score is in the top 25
@@ -507,6 +514,7 @@ export default function App() {
   useEffect(() => {
     // Initial data retrieval
     fetchData(selectedCardCount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -545,7 +553,7 @@ export default function App() {
         <Button onClick={openLeaderboard}>Leaderboard</Button>
       </section>
 
-      <ul className={`container${selectedCardCount === 32 ? ' plus' : ''}`}>
+      <ul className={`container${selectedCardCount === 36 ? ' plus' : ''}`}>
         {cards.map((card, index) => {
           return (
             <Card
@@ -604,7 +612,7 @@ export default function App() {
               <span className="quickest-time">Time: {quickestTime} seconds in {quickestTimeMoves} moves</span>
             </div>
             <div>
-              <span className="headline">32 Card Record:</span>
+              <span className="headline">36 Card Record:</span>
               <span className="lowest-moves">Moves: {lowestMovesPlus} moves in {lowestMovesTimePlus} seconds</span>
               <span className="quickest-time">Time: {quickestTimePlus} seconds in {quickestTimeMovesPlus} moves</span>
             </div>
@@ -649,6 +657,6 @@ export default function App() {
           </Button>
         </DialogActions>
       </Dialog>
-    </div >
+    </div>
   );
 }
