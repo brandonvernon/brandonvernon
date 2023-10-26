@@ -1,5 +1,5 @@
 svg {
-  display: none;
+  position: absolute;
 }
 
 body::-webkit-scrollbar {
