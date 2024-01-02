@@ -63,7 +63,7 @@ function sectionManager(e) {
 
 function sectionManagerKey(e) {
   e.preventDefault()
-  if (e.key === 13) {
+  if (e.key === 'Enter') {
     if (e.target.id === 'navAbout') {
       toggleSection(about)
       closeSections(about)
@@ -119,7 +119,7 @@ function closeSections(ss) {
 }
 
 document.addEventListener('keyup', function (e) {
-  if (e.key === 9) {
+  if (e.key === 'Tab') {
     if (e.target.id === 'linkedIn') {
       about.classList.add('show')
       portfolio.classList.remove('show')
